@@ -67,6 +67,17 @@
                 })
         }
 
+        function searchOffense() {
+            let offense = parseInt($("#offense").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .greaterThan("offense", offense)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
 
         function showResults(results) {
             // テーブルのヘッダを生成
@@ -105,7 +116,7 @@
         <button class="btn" onclick="searchLevel()">Level</button>
         <button class="btn" onclick="searchLevelGT()"> Level &gt;</button>
         <br>
-        <button class="btn" onclick="searchOffense()">Offense</button>
+        <button class="btn" onclick="searchAttack()">Attack</button>
          <button class="btn" onclick="searchOffense()">Defense</button>
     </div>
     <div id="message">message area</div>
