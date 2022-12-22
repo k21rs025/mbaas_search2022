@@ -89,6 +89,18 @@
                 })
         }
 
+        function searchAttackLTE() {
+            let attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThanOrEqualTo("attack", attack)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+
 
         function showResults(results) {
             // テーブルのヘッダを生成
