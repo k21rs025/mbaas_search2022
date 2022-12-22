@@ -55,7 +55,7 @@
                     showResults(results);
                 })
         }
-        
+
         function searchLevelGT() {
             let level = parseInt($("#level").val());
             let TestDataClass = ncmb.DataStore(db);
@@ -105,6 +105,17 @@
             let TestDataClass = ncmb.DataStore(db);
             TestDataClass
                 .greaterThanOrEqualTo("attack", attack)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
+
+        function searchDefenseLTE() {
+            let defence = parseInt($("#defence").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .lessThanOrEqualTo("defence", defence)
                 .fetchAll()
                 .then(function(results) {
                     showResults(results);
