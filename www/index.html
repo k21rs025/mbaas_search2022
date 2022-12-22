@@ -100,6 +100,16 @@
                 })
         }
 
+        function searchAttackGTE() {
+            let attack = parseInt($("#attack").val());
+            let TestDataClass = ncmb.DataStore(db);
+            TestDataClass
+                .greaterThanOrEqualTo("attack", attack)
+                .fetchAll()
+                .then(function(results) {
+                    showResults(results);
+                })
+        }
 
 
         function showResults(results) {
